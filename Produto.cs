@@ -10,5 +10,4 @@ namespace EstoqueRgm
 		//TODO data do pedido - está dando erro ao utilizar a api
 		//public DateOnly data {get; set;}
     }
-    
 }

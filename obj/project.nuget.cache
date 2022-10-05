@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "y2zYKQ8xsIowm80ycUv2wAKXsgBGbLauMdBqnC97EXoW/Qw8wtEA0p5bLzYFiCQpD7acFx0h49knncxsuihoWQ==",
+  "dgSpecHash": "qIoAeWFAvqZFM1uClncRqEs1npdJ0use6cgHh/+dEXxR7YUcPCUoUQaRH+Rww6rh4UIvyjK19srWGGosVanhyQ==",
   "success": true,
-  "projectFilePath": "/home/mbairo/workspaces/up/3s/estoqueRgm/estoqueRgm.csproj",
+  "projectFilePath": "/home/mbairo/workspaces/up/3s/estoque-rgm-a/estoqueRgm.csproj",
   "expectedPackageFiles": [
     "/home/mbairo/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/home/mbairo/.nuget/packages/microsoft.data.sqlite.core/6.0.0/microsoft.data.sqlite.core.6.0.0.nupkg.sha512",

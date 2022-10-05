@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/mbairo/workspaces/up/3s/estoqueRgm/estoqueRgm.csproj": {}
+    "/home/mbairo/workspaces/up/3s/estoque-rgm-a/estoqueRgm.csproj": {}
   },
   "projects": {
-    "/home/mbairo/workspaces/up/3s/estoqueRgm/estoqueRgm.csproj": {
+    "/home/mbairo/workspaces/up/3s/estoque-rgm-a/estoqueRgm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/mbairo/workspaces/up/3s/estoqueRgm/estoqueRgm.csproj",
+        "projectUniqueName": "/home/mbairo/workspaces/up/3s/estoque-rgm-a/estoqueRgm.csproj",
         "projectName": "estoqueRgm",
-        "projectPath": "/home/mbairo/workspaces/up/3s/estoqueRgm/estoqueRgm.csproj",
+        "projectPath": "/home/mbairo/workspaces/up/3s/estoque-rgm-a/estoqueRgm.csproj",
         "packagesPath": "/home/mbairo/.nuget/packages/",
-        "outputPath": "/home/mbairo/workspaces/up/3s/estoqueRgm/obj/",
+        "outputPath": "/home/mbairo/workspaces/up/3s/estoque-rgm-a/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/mbairo/.nuget/NuGet/NuGet.Config"
