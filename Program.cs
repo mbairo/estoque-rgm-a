@@ -38,17 +38,17 @@ namespace EstoqueRgm
 			var app = builder.Build();
 
 
-			ControleEstoque controleEstoque = new ControleEstoque();
-			var qdt = 0;
+			// ControleEstoque controleEstoque = new ControleEstoque();
+			// var qdt = 0;
 
-			// Mostra toda a base do Estoque atual
-			app.MapGet("/zxcv", (BaseProdutos baseProdutos) => {
-				return baseProdutos.ControleEstoque.ToList();
-			});
+			// // Mostra toda a base do Estoque atual
+			// app.MapGet("/zxcv", (BaseProdutos baseProdutos) => {
+			// 	return baseProdutos.ControleEstoque.ToList();
+			// });
 
-			app.MapGet("/mostraTodoEstoque/{quantidadeTotal}", (BaseProdutos baseProdutos, int quantidadeTotal) => {
-				return baseProdutos.Produtos.Find(quantidadeTotal);
-			});
+			// app.MapGet("/mostraTodoEstoque/{quantidadeTotal}", (BaseProdutos baseProdutos, int quantidadeTotal) => {
+			// 	return baseProdutos.Produtos.Find(quantidadeTotal);
+			// });
 
 
 
@@ -65,8 +65,6 @@ namespace EstoqueRgm
 
 				// var atualizaEstoque = baseProdutos.Produtos.Find();
 				// atualizaEstoque.quantidade = produtoAtualizado.quantidade;
-
-
 				return "Produto adicionado";
 
 			});
@@ -98,11 +96,15 @@ namespace EstoqueRgm
 			// --- Mostar um Cadastro em especifico listando pelo ID
 			app.MapGet("/mostrarCadastroPorId/{id}", (BaseProdutos baseProdutos, int id) => {
 				return baseProdutos.Produtos.Find(id);
-			});
+			}); 
 
-			// TODO mostar todos por nome 
-			// TODO mostar todos por categoria
+			// --- Mostra todo o estoque por categoria
+			app.MapGet("/mostrarEstoquePorCategoria/{categoriaProcurada}", 
+			(BaseProdutos baseProdutos, string categoriaProcurada) => baseProdutos.Produtos.Where(elemento => elemento.categoria.Contains(categoriaProcurada)));
 
+			// --- Mostra todo o estoque por modelo
+			app.MapGet("/mostrarEstoquePorModelo/{modeloProcurado}", 
+			(BaseProdutos baseProdutos, string modeloProcurado) => baseProdutos.Produtos.Where(elemento => elemento.modelo.Contains(modeloProcurado)));
 
 			// --- Deletar cadastro por ID --- 
 			app.MapPost("/deletarCadastroPorId/{id}", (BaseProdutos baseProdutos, int id) =>
@@ -114,28 +116,34 @@ namespace EstoqueRgm
 				// TODO: Criar outro deletar porém equivalente a enviar a outra filial
 			});
 
+			var qdt = 0;
+
+
 
 
 			// --------------------------------- Estoque Atualizado --------------------------------- //
+			// *** Código abaixo não está funcionando 
 
-				app.MapGet("/mostrarEstoqueAtualizado/{categoria}", (BaseProdutos baseProdutos, string categoria) => {
+				app.MapGet("/mostrarEstoqueAtualizado/{categoria}", (BaseProdutos baseProdutos, string categoriaInformada) => {
 				// TODO: Percorrer a lista Produtos e somar a quantidade de acordo com a Categoria ou Produto
-				baseProdutos.Produtos.ToList.Find(categoria)
-				foreach (var item in Produtos)
+				var categoriaLocalizada = baseProdutos.Produtos.Find(categoriaInformada);
+				foreach (var item in baseProdutos.Produtos)
 				{
-					qdt += basedeDados.Produto.Find();
+					if (String.Equals(categoriaLocalizada, categoriaInformada))  
+    				Console.WriteLine(" have same value.");  
+					
 				}
-
 				return baseProdutos.ControleEstoque.ToList();
 			});
+			
+			// --- Mostar um Cadastro em especifico listando pelo ID
+			app.MapGet("/xmostrarEstoqueAtualizado/{id}", (BaseProdutos baseProdutos, int id) => {
+				return baseProdutos.Produtos.Find(id);
+			});
 
-
+			//app.MapGet("/mostarSoma/{categoria}", async (BaseProdutos baseProdutos, string categoria) => await baseProdutos.Produtos.Where(s => s.categoria == categoria).FirstOrDefault()).RequireAuthorization();
 
 			// --------------------------------- CONTROLE --------------------------------- //
-
-
-
-
 
 			app.Run();
 		}
