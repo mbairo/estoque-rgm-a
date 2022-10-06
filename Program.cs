@@ -6,6 +6,8 @@
 // Sempre que alterar algo, atualizar com o update
 //	dotnet ef database update
 
+//Linux>> export PATH="$PATH:/home/mbairo/.dotnet/tools"
+
 using Microsoft.EntityFrameworkCore;
 using System;
 using Microsoft.AspNetCore.Builder;
@@ -23,6 +25,8 @@ namespace EstoqueRgm
 		public DbSet<Produto> Produtos { get; set; } = null!;
 		
 		public DbSet<ControleEstoque> ControleEstoque { get; set; } = null!;
+
+		public DbSet<Filial> Filiais { get; set; } = null!;
 		
 	}
 	
@@ -52,7 +56,7 @@ namespace EstoqueRgm
 
 
 
-			// --------------------------------- PRODUTO --------------------------------- //
+			// ****************************** PRODUTO ****************************** //
 			//--- Cadastrar produto --- 
 			app.MapPost("/cadastrar", (BaseProdutos baseProdutos, Produto produto) =>
 			{
@@ -106,6 +110,14 @@ namespace EstoqueRgm
 			app.MapGet("/mostrarEstoquePorModelo/{modeloProcurado}", 
 			(BaseProdutos baseProdutos, string modeloProcurado) => baseProdutos.Produtos.Where(elemento => elemento.modelo.Contains(modeloProcurado)));
 
+
+			// Mostrar a soma total de determinada catgoria
+			// app.MapGet("/mostarSomaCategoria/{categoriaProcurada}", (BaseProdutos baseProdutos, string categoriaProcurada) => {
+			// 	var total = baseProdutos.Produtos.Where(elemento => elemento.categoria.Contains(categoriaProcurada).Sum(elemento => elemento.quantidade);
+			// return total;
+			// }); 
+
+
 			// --- Deletar cadastro por ID --- 
 			app.MapPost("/deletarCadastroPorId/{id}", (BaseProdutos baseProdutos, int id) =>
 			{
@@ -119,11 +131,8 @@ namespace EstoqueRgm
 			var qdt = 0;
 
 
-
-
-			// --------------------------------- Estoque Atualizado --------------------------------- //
+			// ****************************** Estoque Atualizado ****************************** //
 			// *** Código abaixo não está funcionando 
-
 				app.MapGet("/mostrarEstoqueAtualizado/{categoria}", (BaseProdutos baseProdutos, string categoriaInformada) => {
 				// TODO: Percorrer a lista Produtos e somar a quantidade de acordo com a Categoria ou Produto
 				var categoriaLocalizada = baseProdutos.Produtos.Find(categoriaInformada);
@@ -143,7 +152,7 @@ namespace EstoqueRgm
 
 			//app.MapGet("/mostarSoma/{categoria}", async (BaseProdutos baseProdutos, string categoria) => await baseProdutos.Produtos.Where(s => s.categoria == categoria).FirstOrDefault()).RequireAuthorization();
 
-			// --------------------------------- CONTROLE --------------------------------- //
+			// ****************************** CONTROLE ****************************** //
 
 			app.Run();
 		}

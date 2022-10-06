@@ -3,6 +3,7 @@ using System;
 using EstoqueRgm;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace estoqueRgm.Migrations
 {
     [DbContext(typeof(BaseProdutos))]
-    partial class BaseProdutosModelSnapshot : ModelSnapshot
+    [Migration("20221006192856_AddedDateTime")]
+    partial class AddedDateTime
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.0");
